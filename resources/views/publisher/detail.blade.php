@@ -2,8 +2,14 @@
 
 @section('content')
                 <!-- Detail Book from data -->
-                <h1 class="mt-3" align="center">Detail publisher</h1>
-                <div class="from">
+                <div class="container-edit">
+                        <div class="form-edit">
+                            <div class="logo-edit">
+                                <img src="assets/logo_transparent.png" alt="" />
+                            </div>
+                <fieldset style="margin-top: 100px; ">
+                    <legend>Publisher</legend>
+                    <div class="from">
                     <div class="list-group-item">
                         <label for="name">Nama Perusahaan</label>
                         <input type="text" class="form-control" id="name" name="name" value="{{$publisher['name']}}" readonly>
@@ -28,9 +34,11 @@
                         <label for="alamat">Alamat</label>
                         <input type="text" class="form-control" id="alamat" name="alamat" value="{{$publisher['alamat']}}" readonly>
                     </div>
-                    
-
+                    <br>
                     <a href="/publisher/allpublisher" class="btn btn-primary mt-3">Kembali</a>
                 </div>
+                </fieldset>
+            </div>
+        </div>
     
 @endsection   

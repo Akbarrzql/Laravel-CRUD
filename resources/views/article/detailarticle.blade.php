@@ -1,20 +1,39 @@
 @extends('layout.main')
 
 @section('content')
-                <!-- Detail Book from data -->
-                <div class="from" style="margin-top: 100px;">
-                    <div class="card" style="width: 50rem; margin: auto;">
-                        <div class="card-body">
-                            <h5 class="card-title" style="font-size: 2.5rem;">{{$article->tittle}}</h5>
-                            <p class="card-text">{{$article->abstract}}</p>
-                            <hr>    
-                            <p class="card-text"><a href="/publisher/detail/{{$article->publisher->name_publisher}}" style="text-decoration: none; color: black;">dipubliskasikan oleh: <b>{{$article->publisher->name_publisher}}</b> | {{$article->article_date}}</a></p>
-                            <hr>
-                            <p class="card-text">{{$article->description}}</p>
-                            <a href="/article/allarticle" class="btn btn-primary mt-3">Kembali</a>
-                            <a class="btn btn-warning mt-3" href="/article/editarticle/{{$article->id}}">Suting</a> 
-                        </div>
-                    </div>          
+                    <div  class="col-lg-8">
+                    <div class="container-edit">
+                        <div class="form-edit">
+                            <div class="logo-edit">
+                                <img src="assets/logo_transparent.png" alt="" />
+                            </div>
+                        <form>
+                            @csrf
+                            <fieldset>
+                                    <legend>Edit Data</legend>
+                                    <p>
+                                      <label>Judul :</label>
+                                      <input type="text" class="form-control" id="tittle" name="tittle" placeholder="Judul Artikel" value= "{{old('tittle', $article->tittle)}}" required readonly>
+                                    </p>
+                                    <p>
+                                      <label>Abstrak :</label>
+                                      <input type="text" class="form-control" id="abstract" name="abstract" placeholder="Abstrak Artikel" value= "{{old('abstract', $article->abstract)}}" required readonly>
+                                    </p>
+                                    <p>
+                                      <label>Isi Artikel :</label>
+                                      <textarea type="text" class="form-control" id="description" name="description" placeholder="Isi Artikel.." required cols="30" rows="10" readonly>{{$article['description']}}</textarea>
+                                    </p>
+                                    <p>
+                                      <label>Dipublikasikan :</label>
+                                      <p class="card-text"><a href="/publisher/detail/{{$article->publisher->name_publisher}}" style="text-decoration: none; color: black; 
+                            ">dipubliskasikan oleh: <b>{{$article->publisher->name_publisher}}</b> | {{$article->article_date}}</a></p>
+                                    </p>
+                                    <br>
+                                    <a href="/article/allarticle" class="btn btn-primary mt-3">Kembali</a>
+                                    </fieldset>
+                        </form>
+                    </div>
                 </div>
+            </div>
     
 @endsection   

@@ -1,33 +1,47 @@
 @extends('layout.main')
 
 @section('content')
-                    <center><h1 class="mt-3">Daftar Article</h1></center>
-
                     @if(session() -> has('success'))
                         <div class="alert alert-success col-lg 12" role="alert">
                             {{session() -> get('success')}}
                         </div>
                     @endif    
 
-                    <div class="container container-fluid">
-                    <a href="/article/createarticle" class="btn btn-primary mb-3" role="button">Tambah Artikel</a>
-                    <div class="row">
-                    @foreach ($articles as $article)
-                    <div class="card m-3" style="width: 18rem;">
-                        <div class="card-body d-flex flex-column">
-                            <h5 class="card-title"><a href="/article/detailarticle/{{$article->tittle}}" style="text-decoration: none; color: black;">{{$article->tittle}}</a></h5>
-                            <p class="card-text"><a href="/article/detailarticle/{{$article->tittle}}" style="text-decoration: none; color: black;">{{$article->description}}</a></p>
-                            <div class="mt-auto">   
-                            <form action="/article/delete/{{$article->id}}" method="post" class="d-inline">
+                     <!-- Artikel -->
+        <div id="page-artikel">
+            <div class="artikel">
+                <div class="text-title">
+                    <h1>Artikel</h1>
+                    <p>Artikel Terbaru Di Micro Academy</p>
+                    <div class="btn-add">
+                        <a href="/article/createarticle">Tambah Artikel</a>
+                    </div>
+                </div>
+                <div class="column-artikel">
+                @foreach ($articles as $article)
+                    <div class="card">
+                        <div class="card-content">
+                            <h3><a href="/article/detailarticle/{{$article->tittle}}" style="text-decoration: none;color: black; font-weight: bold; font-size: 20px;">{{$article->tittle}}</a></h3>
+                            <p ><a href="/article/detailarticle/{{$article->tittle}}" style="font-weight: normal;">{{$article->description}}</a></p>
+                            <div class="edit-tidakTertarik">
+                            <form action="/article/delete/{{$article->id}}" method="post">
                                         @method('delete')
                                         @csrf
-                                        <button class="btn btn-danger" onClick="return confirm('Apakah Kamu yakin? ')" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">Tidak Tertarik</button>
+                                        <div class="btn-tidakTertarik">
+                                        <button onClick="return confirm('Apakah Kamu yakin? ')" >Tidak Tertarik</button>
+                                        </div>
                                         </form>
+                               <div class="edit">
+                                <a href="/article/editarticle/{{$article->id}}"><i title="Edit Artikel" class="uil uil-edit"></i></a>
+                               </div>
+                              </div>
                         </div>
                     </div>
-                 </div>
+                 
                     @endforeach
-                    </div>
-                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end artikel -->
     
 @endsection   
