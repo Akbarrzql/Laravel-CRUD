@@ -14,6 +14,7 @@
                 <th>Email</th>
                 <th>Alamat</th>
                 <th>Umur</th>
+                <th>Hobby</th>
                 <th>Article</th>
                 <th>Detail</th>
             </tr>
@@ -27,6 +28,7 @@
                                 <td><?= $publisher['email']; ?></td>
                                 <td><?= $publisher['alamat']; ?></td>
                                 <td><?= $publisher['age']; ?></td>
+                                <td><?= $publisher['hobby']; ?></td>
                                 <td>
                                     <?php foreach($publisher->article as $article): ?>
                                         <!-- <li style="text-align: left;"><a href="/article/detailarticle/{{$article->tittle}}"><?= $article->tittle; ?></a></li> -->

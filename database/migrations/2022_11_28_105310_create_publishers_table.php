@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('name_publisher');
             $table->string('email');
             $table->string('alamat');
+            $table->string('hobby');
             $table->integer('age');
             $table->timestamps();
         });

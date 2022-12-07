@@ -21,6 +21,7 @@ class publisherFactory extends Factory
             'name_publisher' => fake()->name(),
             'alamat' => fake()->city(),
             'email' => fake()->unique()->safeEmail(),
+            'hobby' => fake()->jobTitle(),
             'age' => mt_rand(1,100),
         ];
     }

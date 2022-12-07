@@ -21,9 +21,10 @@
                     </div>
 
                     <div class="from-group">
-                        <label for="email">Email</label>
-                        <input type="text" class="form-control" id="email" name="email" value="{{$publisher['email']}}" readonly>
+                        <label for="email">Hoby</label>
+                        <input type="text" class="form-control" id="hobby" name="hobby" value="{{$publisher['hobby']}}" readonly>
                     </div>
+                    
                     
                     <div class="from-group">
                         <label for="age">Age</label>

@@ -21,7 +21,9 @@ Route::get('/', function () {
 });
 
 Route::get('/home', function () {
-    return view('home');
+    return view('home',[
+        'articles' => article::all(),
+    ]);
 });
 
 Route::get('/about', function () {

@@ -1,11 +1,6 @@
 @extends('layout.main')
 
-@section('content')
-                    @if(session() -> has('success'))
-                        <div class="alert alert-success col-lg 12" role="alert">
-                            {{session() -> get('success')}}
-                        </div>
-                    @endif    
+@section('content') 
 
                      <!-- Artikel -->
         <div id="page-artikel">
